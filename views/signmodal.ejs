@@ -1,0 +1,41 @@
+<div id="signModal" class="modal">
+    <div class="form-inner-cont">
+        <h3 class="ModalLabel">Вход в аккаунт</h3>
+        <form action="/login" method="post" class="signin-form">
+            <div class="form-input">
+                <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                <input required type="email" name="email" placeholder="Почта"/>
+            </div>
+            <div class="form-input">
+                <span class="fa fa-key" aria-hidden="true"></span>
+                <input required type="password" name="password" placeholder="Пароль"/>
+            </div>
+            <div style="margin: auto" class="row">
+                <div class="login-remember col-8" style="padding: 0 !important;justify-content: center; margin: auto;">
+                    <label class="check-remaind">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <p class="remember">Запомнить меня?</p>
+                    </label>
+                </div>
+                <button type="submit" class="btn col-4" id="auth">Войти</button>
+            </div>
+
+        </form>
+        <div class="social-icons">
+            <p class="continue"><span>Или</span></p>
+            <div class="social-login">
+                <a class="fa_icons" href="/auth/vkontakte">
+                    <div class="vk">
+                        <span class="vk_icon fa fa-vk" aria-hidden="true"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div style="margin: auto" class="row">
+            <div class="btn col-2"></div>
+            <button type="button" class="btn col-8" id="reg">Регистрация</button>
+            <div class="btn col-2"></div>
+        </div>
+    </div>
+</div>

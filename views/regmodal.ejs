@@ -1,0 +1,43 @@
+<div id="regModal" class="modal">
+    <div class="form-inner-cont">
+        <h3 class="ModalLabel">Создание аккаунта</h3>
+        <form action="/signup" method="post" class="reg-form">
+            <div class="form-input">
+                <span class="fa fa-user-o" aria-hidden="true"></span>
+                <input type="text" name="second_name" placeholder="Фамилия" required/>
+            </div>
+            <div class="form-input">
+                <span class="fa fa-user-o" aria-hidden="true"></span>
+                <input type="text" name="first_name" placeholder="Имя" required/>
+            </div>
+            <div class="form-input">
+                <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                <input type="email" name="email" placeholder="Почта"/>
+            </div>
+            <div class="form-input">
+                <span class="fa fa-key" aria-hidden="true"></span>
+                <input type="password" name="password" placeholder="Пароль"/>
+            </div>
+            <div class="login-remember d-grid">
+                <label class="check-remaind">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <p class="remember">Запомнить меня?</p>
+                </label>
+                <button type="submit" class="btn col-5">Регистрация</button>
+            </div>
+        </form>
+        <div class="social-icons">
+            <p class="continue"><span>Или</span></p>
+            <div class="social-login">
+                <a class="fa_icons" href="/auth/vkontakte">
+                    <div class="vk">
+                        <span class="vk_icon fa fa-vk" aria-hidden="true"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <p class="signup">Уже зарегистрированы?<button type="button" class="btn col-5" id="reg_back">Войти</button>
+        </p>
+    </div>
+</div>

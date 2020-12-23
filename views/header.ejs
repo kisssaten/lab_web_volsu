@@ -1,0 +1,124 @@
+<head>
+    <meta charset="utf-8">
+    <script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BiroMiro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="./public/css/regstyle.css">
+    <link rel="stylesheet" href="./public/css/leaders_style.css">
+    <link rel="stylesheet" href="./public/css/fixed.css">
+    <link rel="stylesheet" href="./public/css/task-style.css">
+    <script src="./public/javascripts/script.js"></script>
+    <link rel="stylesheet" media="screen" href="" type="text/css"/>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/minecraft" type="text/css"/>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/minecraftia" type="text/css"/>
+    <link rel="stylesheet" href="../public/Fonts/fontawesome/css/all.css">
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext"
+          rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("#tabs").tabs();
+        });
+    </script>
+</head>
+
+<header>
+    <div class="container-fluid">
+        <div class="header d-lg-flex justify-content-between align-items-center py-3 px-sm-3">
+            <!-- logo -->
+            <div id="logo">
+                <h1><a href="/">BIROMIRO PRODUCTION</a></h1>
+            </div>
+            <!-- //logo -->
+            <!-- nav -->
+            <div class="nav_w3ls">
+                <nav>
+                    <label for="drop" class="menu_bar toggle">Меню</label>
+                    <input type="checkbox" id="drop"/>
+                    <ul class="menu">
+                        <li>
+                            <!-- First Tier Drop Down -->
+                            <label for="drop-2" class="menu_help toggle toogle-2">Помощь <span class="fa fa-angle-down"
+                                                                                               aria-hidden="true"></span>
+
+                            </label>
+                            <a href="#">Помощь <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                            <input type="checkbox" id="drop-2"/>
+                            <ul>
+                                <li><a href="/" class="guide drop-text active">Гайд</a></li>
+                                <li><a href="/" class="feedback drop-text">Обратная связь</a></li>
+                                <li><a href="/" class="features drop-text">Возможности</a></li>
+                                <li><a href="/" class="faq drop-tex active">FAQ</a></li>
+                                <li><a href="/" class="our_team drop-text">Наша команда</a></li>
+                                <li><a href="/" class="partners drop-text">Партнёры</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="/news" class="menu_projects active">Проекты</a></li>
+                        <% if(login){ %>
+                            <% if(owner.permission == "User" || owner.permission == "Admin"){ %>
+                                <li><a href="/createTask" class="menu_projects active">Создать задачу</a></li>
+                            <% } }%>
+                            <li><a href="/top_leaders" class="menu_people">Топ лидеров</a></li>
+
+
+                            <% if (login) { %>
+                            <a class="menu_profile" href="/<%= owner.uid %>">Профиль</a>
+                            <button class="btn logout" onclick="window.location.href='/logout';" id="logout">Выйти
+                            </button>
+                            <% }else{ %>
+                                <button class="btn sign" id="sign">Войти</button>
+                        <% } %>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- //header -->
+
+<%- include('signmodal'); -%>
+<%- include('regmodal'); -%>
+
+<script>
+    var btn_reg_back = document.getElementById("reg_back");
+    var regModal = document.getElementById("regModal");
+    var signModal = document.getElementById("signModal");
+    var btn_sign = document.getElementById("sign");
+    var btn_auth = document.getElementById("auth");
+    var btn_reg = document.getElementById("reg");
+
+    btn_reg_back.onclick = function () {
+        signModal.style.display = "block";
+        regModal.style.display = "none";
+    }
+    btn_sign.onclick = function () {
+        signModal.style.display = "block";
+    }
+    btn_reg.onclick = function () {
+        signModal.style.display = "none";
+        regModal.style.display = "block";
+    }
+
+    window.onclick = function (event) {
+        if (event.target === signModal) {
+            signModal.style.display = "none";
+        }
+        if (event.target === regModal) {
+            regModal.style.display = "none";
+        }
+    }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+

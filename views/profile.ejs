@@ -1,0 +1,116 @@
+<%- include('header'); -%>
+
+<!-- MAIN CONTAINER -->
+<div id="main_container" style="margin-top: 20px;  width: 65%; margin: auto">
+    <!-- LEFT COL -->
+    <span id="left_col">
+        <div class="profile_frame">
+
+            <div class="profile_picture"></div>
+            <!-- <img src="images/javier_latorre.jpg" alt="profile picture"> -->
+        </div>
+        <div style="width: 220px;text-align: center;">
+            <% if(login){ %>
+            <% if(isThisUser){ %>
+            <form action="/upload" method="post" enctype="multipart/form-data" style="color:#48da9b;">
+        <input type="file" name="filedata">
+        <input type="submit" value="Send" class="profile_a" style="  margin-top: 10px;
+  display: block;
+  background: #48da9b;
+  width: 110px;
+  height: 40px;
+  position: relative;
+  margin: auto;
+  z-index: 1;">
+      </form>
+                <% } } %>
+        <span style="font-size: 30px;  color: #48da9b">Сила голоса <%= user.votes %></span>
+            </div>
+        <div class="row-buttons" style="width: 100%; height: auto">
+            <% if(login){ %>
+            <% if(!isThisUser){ %>
+
+                <% if(owner.votes != 0){ %>
+                    <a href="/give_votes/<%= user.uid %>" class="profile_a send_message_button"
+                       style="padding: 0!important; margin-right: 0">
+                <span class="profile_content">Отдать голос</span>
+            </a>
+                <% }else{ %>
+                    <% if(owner.vote_owner_id == user.uid){ %>
+                        <a href="/revert_votes/<%= user.uid %>" class="profile_a send_message_button"
+                           style="padding: 0!important; margin-right: 0">
+                <span class="profile_content">Забрать голос</span>
+            </a>
+                    <% } else{ %>
+                        <% if(owner.vote_owner_id == user.uid){ %>
+                            <a href="/revert_votes/<%= user.uid %>" class="profile_a send_message_button"
+                               style="padding: 0!important; margin-right: 0">
+            </a>
+
+                        <% } %>
+            <% } } }else { %>
+                <% if(owner.votes == 0){ %>
+                    <a href="/<%= user.vote_owner_id %>" class="profile_a send_message_button"
+                       style="padding: 0!important; margin-right: 0">
+                <span class="profile_content">Перейти к лидеру</span>
+            </a>
+            <% }}} %>
+                <% if(login){ %>
+            <% if(!isThisUser){ %>
+                <a class="profile_a send_message_button" style="padding: 0!important; margin-right: 0">
+                <span class="profile_content">Лайк</span>
+            </a>
+                <a class="profile_a send_message_button" style="padding: 0!important; margin-right: 0">
+                <span class="profile_content">Дизлайк</span>
+            </a>
+            <% }} %>
+        </div>
+
+    </span>
+    <!-- PROFILE CONTENT -->
+    <div id="content_container">
+        <div class="block">
+            <h1 class="profile_h1"><%= user.second_name %> <%= user.first_name %></h1>
+            <blockquote class="profile_blockquote profile_quote">
+                <p class="profile_p"><%= user.description_2 %></p>
+                <span class="entypo-quote"></span>
+            </blockquote>
+        </div>
+        <div class="block">
+            <h2 class="profile_h2">Несколько слов обо мне</h2>
+            <p class="profile_p"><%= user.description_3 %></p>
+        </div>
+        <div class="horizontal_line">
+            <div class="line_left"></div>
+            <div class="left_circle"></div>
+            <div class="central_circle"></div>
+            <div class="right_circle"></div>
+            <div class="line_right"></div>
+        </div>
+    </div>
+
+    <span id="left_col" style="padding-left: 20px">
+            <div class="hello_content">
+                <h2 class="profile_h2">Всем привет!</h2>
+                <p class="profile_p"><%= user.description_1 %></p>
+            </div>
+
+        <div class="contact_details_content">
+            <h2 class="profile_h2">Contact details</h2>
+            <p class="profile_p purple">Phone:</p>
+            <p class="profile_p"><%= user.phone_number %></p>
+            <p class="profile_p purple">Email:</p>
+            <% if(user.email == null){ %>>
+            <p class="profile_p">Почта не указана</p>
+            <% }else{ %>
+
+                <p class="profile_p"><%= user.email %></p>
+            <% } %>
+
+            <p class="profile_p purple">Adress:</p>
+            <p class="profile_p">Someplace, 5</p>
+            <p class="profile_p">Jaén, Spain</p>
+            <p class="profile_p">23001</p>
+        </div>
+    </span>
+</div>
